@@ -65,6 +65,52 @@ export default function RAGChatBot() {
                           remarkPlugins={[remarkGfm]}
                           rehypePlugins={[rehypeHighlight]}
                           components={{
+                            table({ children }) {
+                              return (
+                                <div className="overflow-x-auto my-4">
+                                  <table className="border border-gray-300 dark:border-gray-700 border-collapse">
+                                    {children}
+                                  </table>
+                                </div>
+                              );
+                            },
+
+                            thead({ children }) {
+                              return (
+                                <thead className="bg-gray-100 ">
+                                  {children}
+                                </thead>
+                              );
+                            },
+
+                            tbody({ children }) {
+                              return <tbody>{children}</tbody>;
+                            },
+
+                            tr({ children }) {
+                              return (
+                                <tr className="border-b border-gray-300 dark:border-gray-700">
+                                  {children}
+                                </tr>
+                              );
+                            },
+
+                            th({ children }) {
+                              return (
+                                <th className="bg-white border border-gray-300 dark:border-gray-700 px-4 py-2 text-left font-semibold">
+                                  {children}
+                                </th>
+                              );
+                            },
+
+                            td({ children }) {
+                              return (
+                                <td className="bg-white border border-gray-300 dark:border-gray-700 px-4 py-2 align-top">
+                                  {children}
+                                </td>
+                              );
+                            },
+
                             pre({ children }) {
                               return (
                                 <pre className="relative rounded-xl overflow-hidden my-4">
